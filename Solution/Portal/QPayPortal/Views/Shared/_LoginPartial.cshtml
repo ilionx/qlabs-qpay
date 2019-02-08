@@ -1,0 +1,23 @@
+@using System.Security.Principal
+
+@if (User.Identity.IsAuthenticated)
+{
+    <img src="/images/logoNew.png" class="qpay-avatar">
+    <div class="qpay-avatar-dropdown">
+        <span>@User.Identity.Name</span>
+        <div class="mdl-layout-spacer"></div>
+        <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">arrow_drop_down</i>
+            <span class="visuallyhidden">Accounts</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+            <li class="mdl-menu__item"><a asp-area="" asp-controller="Account" asp-action="SignOut">Sign out</a></li>
+        </ul>
+    </div>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-area="" asp-controller="Account" asp-action="Signin">Sign in</a></li>
+    </ul>
+}

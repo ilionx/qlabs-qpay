@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "ExternalIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Square card -->
+<style>
+    .demo-card-square.mdl-card {
+        width: 400px;
+        height: auto;
+    }
+
+</style>
+
+<div class="demo-card-square mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title mdl-card--expand">
+    </div>
+    <form asp-action="ExternalIndex">
+        <h5>Selecteer een betaalprovider</h5>
+        <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+            <select class="mdl-selectfield__select" id="selectedPaymentprovider" name="paymentProvider">
+                <option value="PayPal">PayPal</option>
+            </select>
+            <label class="mdl-selectfield__label" for="selectedPaymentprovider">Betaalprovider</label>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <div class="form-group">
+                <a asp-action="ToHome" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Terug
+                </a>
+                <input type="submit" value="Verder" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" />
+            </div>
+        </div>
+    </form>
+    </div>

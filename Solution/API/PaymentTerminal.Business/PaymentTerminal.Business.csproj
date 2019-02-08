@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PaymentTerminal.DataAccess\PaymentTerminal.DataAccess.csproj" />
+    <ProjectReference Include="..\PaymentTerminal.Interfaces\PaymentTerminal.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Offline";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal topUpAmount = 15;
+}
+
+<div class="demo-card-wide mdl-card mdl-shadow--2dp UserTransactionContainer">
+    <div class="mdl-card__title" style="color: black">
+        <h2 class="mdl-card__title-text">Opwaarderen</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+        U kunt 15 euro opwaarderen, u kunt hier direct gebruik van maken.
+        Echter dient u zo snel mogelijk het opgewaardeerde bedrag te betalen bij Iris van Campen.
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <a asp-action="OfflineTopUp" asp-route-id="15" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            € @topUpAmount ,-
+        </a>
+    </div>
+</div>

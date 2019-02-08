@@ -1,0 +1,59 @@
+﻿@using Portal.Business.Models
+@using QPayPortal.Controllers
+@model IEnumerable<Portal.Business.Models.Transaction>
+
+<script>
+    $(document).ready(function () {
+        $('#OpenTransactionTable').DataTable({
+            columnDefs: [
+                {
+                    targets: [0, 1, 2],
+                    className: 'mdl-data-table__cell--non-numeric'
+                }
+            ]
+        });
+    });
+</script>
+
+<table id='OpenTransactionTable' class="mdl-data-table mdl-shadow--2dp adminPartialViewTable">
+    <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Transaction.TransactionId)" style="text-align: left">ID</th>
+            <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Transaction.EmployeeEmail)" style="text-align: left">Email</th>
+            <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Transaction.DateTime)">Datum & Tijd</th>
+            <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Transaction.Amount)">Bedrag</th>
+            <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Transaction.TransactionType)">Type</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="@nameof(Transaction.TransactionId)"style="text-align: left">
+                    @Html.DisplayFor(modelItem => item.TransactionId)
+                </td>
+                <td class="@nameof(Transaction.EmployeeEmail)" style="text-align: left">
+                    @Html.DisplayFor(modelItem => item.EmployeeEmail)
+                </td>
+                <td class="@nameof(Transaction.DateTime)" style="text-align: left">
+                    @{
+                        DateTime localDateTime = item.DateTime.ToLocalTime();
+                    }
+                    @Html.DisplayFor(modelItem => localDateTime)
+                </td>
+                <td class="@nameof(Transaction.Amount)" style="text-align: left">
+                    &#8364 @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td class="@nameof(Transaction.TransactionType)" style="text-align: left">
+                    @Html.DisplayFor(modelItem => item.TransactionType)
+                </td>
+                <td>
+                    <a id="tt1" class="mdl-button mdl-js-button mdl-button--icon" asp-action="ApproveTransaction" asp-route-id="@item.TransactionId">
+                        <i class="material-icons">done</i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

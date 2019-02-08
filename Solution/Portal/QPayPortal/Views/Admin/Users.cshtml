@@ -1,0 +1,51 @@
+﻿@using Portal.Business.Models
+@model IEnumerable<Employee>
+
+<script>
+    $(document).ready(function () {
+        $('#userTable').DataTable({
+            columnDefs: [
+                {
+                    targets: [0, 1, 2],
+                    className: 'mdl-data-table__cell--non-numeric'
+                }
+            ]
+        });
+    });
+</script>
+
+<table id='userTable' class="mdl-data-table mdl-shadow--2dp adminPartialViewTable">
+    <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Employee.Email)">Gebruiker</th>
+            <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Employee.CardUid)">Kaart ID</th>
+            <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Employee.Balance)">Saldo</th>
+            <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Employee.Admin)">Beheerder</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="@nameof(Employee.Email)">
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td class="@nameof(Employee.CardUid)">
+                    @Html.DisplayFor(modelItem => item.CardUid)
+                </td>
+                <td class="@nameof(Employee.Balance)">
+                    &#8364 @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+                <td class="@nameof(Employee.Admin)">
+                    @Html.DisplayFor(modelItem => item.Admin)
+                </td>
+                <td>
+                    <a id="tt1" class="mdl-button mdl-js-button mdl-button--icon" asp-action="EditUser" asp-route-id="@item.Email">
+                        <i class="material-icons">edit</i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

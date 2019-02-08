@@ -1,0 +1,87 @@
+﻿@using Portal.Business.Models;
+@model QPayPortal.Models.ViewAdminInfo
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<!-- Simple header with fixed tabs. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+        </div>
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+            <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Overview</a>
+            <a href="#fixed-tab-2" class="mdl-layout__tab">Gebruikers</a>
+            <a href="#fixed-tab-3" class="mdl-layout__tab">Betalingen</a>
+            <a href="#fixed-tab-4" class="mdl-layout__tab">Openstaande betalingen</a>
+            <a href="#fixed-tab-5" class="mdl-layout__tab">Terminals</a>
+            <a href="#fixed-tab-6" class="mdl-layout__tab">Producten</a>
+        </div>
+    </header>
+    <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+            <div class="page-content container">
+                <div class="mdl-grid">
+                    <div class="mdl-cell--12-col mdl-cell--12-col-tablet">
+                        <!-- Your content goes here -->
+                        @{await Html.RenderPartialAsync("Overview", Model.Employee); }
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+            <div class="page-content container">
+                <div class="mdl-grid">
+                    <div class="mdl-cell--12-col mdl-cell--12-col-tablet">
+                        <!-- Your content goes here -->
+                        @{await Html.RenderPartialAsync("Users", Model.Employee); }
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+            <div class="page-content container">
+                <div class="mdl-grid">
+                    <div class="mdl-cell--12-col mdl-cell--12-col-tablet">
+                        <!-- Your content goes here -->
+                        @{ await Html.RenderPartialAsync("Transactions", Model.Transaction);}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-4">
+            <div class="page-content container">
+                <div class="mdl-grid">
+                    <div class="mdl-cell--12-col mdl-cell--12-col-tablet">
+                        <!-- Your content goes here -->
+                        @{ await Html.RenderPartialAsync("OpenTransactions", Model.OpenTransactions);}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-5">
+            <div class="page-content container">
+                <div class="mdl-grid">
+                    <div class="mdl-cell--12-col mdl-cell--12-col-tablet">
+                        <!-- Your content goes here -->
+                        @{ await Html.RenderPartialAsync("TerminalWithProduct", Model.TerminalAndProducts);}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-6">
+            <div class="page-content container">
+                <div class="mdl-grid">
+                    <div class="mdl-cell--12-col mdl-cell--12-col-tablet">
+                        <!-- Your content goes here -->
+                        @{ await Html.RenderPartialAsync("Products", Model.Products);}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+</html>
