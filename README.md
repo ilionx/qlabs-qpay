@@ -48,7 +48,8 @@ Please make sure git is installed, you can download git commandline tools [here]
 
 Before we begin with the installation please make sure you have wired the Explore-nfc-ww and led lights to the Raspberry pi as shown below.
 
-# TODO PICTURE WIRE GPIO PINS
+![gpioPins](./README_RESOURCES/pinoutPi_bb.png)
+*The NFC reader will use most GPIO pins (blue lines)*
 
 #### Required files and settings
 * A Raspberry running [raspbian](https://www.raspberrypi.org/downloads/raspbian/)(light)
