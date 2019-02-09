@@ -5,8 +5,22 @@ Welcome to the qlabs qpay repository.
 
 qpay is a simple, fast and complete payment solution that uses IoT devices with network capability and a RFID/NFC scanner as payment terminals.
 
+###Cloning the repo
+You can clone the repo with the following command:
+
+```bash
+git clone https://github.com/ilionx/qlabs-qpay.git
+```
+Please make sure git is installed, you can download git commandline tools [here](https://git-scm.com/downloads).
+
+
+
 # Set up and run the qpay payment solution
-1. Setting up the Raspberry pi as payment terminal
+1. Configure and run the qpay backend
+    1.1. Creating the database
+    1.2. Configure and run the Portal
+    1.3. Configure and run the API
+2. Setting up a Raspberry pi as payment terminal
 
 ## Required hardware
 **Everything here is tested with the hardware listed below, you should be able to make this work with most devices like OrangePi/RockPi/Odroid. If you use a different RFID/NFC-scanner please reffer to the guide/how-to for that specific reader as it might be different from the Explore-nfc-ww board.**
@@ -22,8 +36,15 @@ qpay is a simple, fast and complete payment solution that uses IoT devices with 
 * [Microsoft SQL Server](https://go.microsoft.com/fwlink/?linkid=853017)
 
 -----------
+### 1. Configure and run the qpay backend
 
-### Setting up the Raspberry pi as payment terminal
+#### 1.1. Creating the database
+
+#### 1.2. Configure and run the portal
+
+#### 1.3. Configure and run the API
+-----------
+### 2. Setting up the Raspberry pi as payment terminal
 
 Before we begin with the installation please make sure you have wired the Explore-nfc-ww and led lights to the Raspberry pi as shown below.
 
