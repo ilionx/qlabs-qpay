@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="QPayApi.Controllers.TerminalController">
+    <Position X="2.75" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Controllers\TerminalController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QPayApi.Models.NewScan">
+    <Position X="4.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Models\NewScan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QPayApi.Program">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QPayApi.Startup">
+    <Position X="0.5" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAgAAACAAAAAA=</HashCode>
+      <FileName>Startup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QPayApi.Extension">
+    <Position X="0.5" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Startup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PaymentTerminal.Business.CheckBalance" BaseTypeListCollapsed="true">
+    <Position X="9" Y="6.5" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PaymentTerminal.Business.CheckTerminal" BaseTypeListCollapsed="true">
+    <Position X="9" Y="10.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PaymentTerminal.Business.NewCardScanned" BaseTypeListCollapsed="true">
+    <Position X="9" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PaymentTerminal.Business.ProcessPayment" BaseTypeListCollapsed="true">
+    <Position X="9" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PaymentTerminal.Business.ValidateScan">
+    <Position X="4.75" Y="8" Width="1.5" />
+    <NestedTypes>
+      <Class Name="PaymentTerminal.Business.ValidateScan.StatusCode" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PaymentTerminal.DataAccess.Models.Employee">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PaymentTerminal.DataAccess.Models.NewCards">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PaymentTerminal.DataAccess.Models.Product">
+    <Position X="4.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PaymentTerminal.DataAccess.Models.Terminal">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PaymentTerminal.DataAccess.Models.Transaction">
+    <Position X="8.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PaymentTerminal.DataAccess.GetBalance">
+    <Position X="15.5" Y="6.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="PaymentTerminal.DataAccess.GetBalance.GetBalanceResult">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PaymentTerminal.DataAccess.GetProductPrice">
+    <Position X="13.5" Y="10.25" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="PaymentTerminal.DataAccess.GetProductPrice.GetProductPriceResult">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PaymentTerminal.DataAccess.PaymentTerminalContext">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PaymentTerminal.DataAccess.WriteNewCard" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PaymentTerminal.DataAccess.WriteTransaction">
+    <Position X="13.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="PaymentTerminal.Interfaces.ICheckBalance">
+    <Position X="7" Y="6.5" Width="1.75" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="PaymentTerminal.Interfaces.ICheckTerminal">
+    <Position X="7" Y="10.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="PaymentTerminal.Interfaces.INewCardScanned">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="PaymentTerminal.Interfaces.IProcessPayment">
+    <Position X="7" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="PaymentTerminal.Interfaces.IWriteNewCard">
+    <Position X="11.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="PaymentTerminal.Interfaces.IWriteTransaction">
+    <Position X="11.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,81 @@
+﻿body {
+    padding: 0px;
+    background: #fafafa;
+    position: relative;
+    overflow: hidden;
+}
+
+form {
+    padding: 20px;
+}
+
+div.mdl-card {
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    position: center;
+}
+
+div.mdl-card__supporting-text {
+    font-size: 1.2em;
+}
+
+/* Table Sorting */
+input + table {
+    margin-top: 1em;
+}
+
+$sortIndicatorIconColor: #000;
+
+th.sort {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    min-width: 50%; // th "Year" is too small and sort icon needs extra room
+    &:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:after {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        content: "";
+        position: relative;
+        top: -10px;
+        right: -5px;
+    }
+
+    &.asc:after {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid $sortIndicatorIconColor;
+        content: "";
+        position: relative;
+        top: 4px;
+        right: -5px;
+    }
+
+    &.desc:after {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid $sortIndicatorIconColor;
+        content: "";
+        position: relative;
+        top: -4px;
+        right: -5px;
+    }
+}

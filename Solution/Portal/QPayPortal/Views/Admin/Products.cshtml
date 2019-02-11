@@ -1,0 +1,62 @@
+﻿@using Portal.Business.Models
+@model IEnumerable<Portal.Business.Models.Product>
+
+<script>
+    $(document).ready(function () {
+        $('#AdminProductsTable').DataTable({
+            order: [[0, "desc"]],
+            columnDefs: [
+                {
+                    targets: [0, 1, 2],
+                    className: 'mdl-data-table__cell--non-numeric'
+                }
+            ]
+        });
+    });
+</script>
+
+<table id='AdminProductsTable' class="mdl-data-table mdl-shadow--2dp adminPartialViewTable">
+    <thead>
+    <tr>
+        <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Portal.Business.Models.Product.ProductId)">Product ID</th>
+        <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Portal.Business.Models.Product.ProductName)">Naam</th>
+        <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Portal.Business.Models.Product.ProductDescription)">Beschrijving</th>
+        <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Portal.Business.Models.Product.ProductPrice)">Prijs</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="@nameof(Product.ProductId)">
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td class="@nameof(Product.ProductName)">
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td class="@nameof(Product.ProductDescription)">
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td class="@nameof(Product.ProductPrice)">
+                &#8364 @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                <a id="tt1" class="mdl-button mdl-js-button mdl-button--icon" asp-action="EditProduct" asp-route-id="@item.ProductId">
+                    <i class="material-icons">edit</i>
+                </a>
+            </td>
+            <td>
+                <a id="tt1" class="mdl-button mdl-js-button mdl-button--icon" asp-action="DeleteProduct" asp-route-id="@item.ProductId">
+                    <i class="material-icons">delete</i>
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<div style="padding-left: 85%">
+    <a asp-action="CreateProduct" class="mdl-button mdl-button--accent mdl-button--raised">Nieuw product</a>
+</div>
+            

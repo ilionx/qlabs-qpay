@@ -1,0 +1,63 @@
+﻿@using Portal.Business.Models;
+@model IEnumerable<Transaction>
+
+<script>
+    $(document).ready(function () {
+        $('#transactionTable').DataTable({
+            order: [[0, "desc"]],
+            columnDefs: [
+                {
+                    targets: [0, 1, 2],
+                    className: 'mdl-data-table__cell--non-numeric'
+                }
+            ]
+        });
+    });
+</script>
+<html>
+<body>
+    <div class="UserTransactionContainer" style="overflow: auto;">
+        <table id="transactionTable" class="mdl-data-table mdl-shadow--2dp" style=" width: 100%">
+            <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Transaction.TransactionId)">ID</th>
+                    <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Transaction.DateTime)">Datum & Tijd</th>
+                    <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Transaction.Amount)">Bedrag</th>
+                    <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Transaction.TransactionType)">Type</th>
+                    @* Can be used when external paymentproviders are working *@
+                    @*<th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Transaction.ProviderName)">Betaalprovider</th>
+                        <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(Transaction.ProviderTransactionId)">Betaalprovider transactie ID</th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="@nameof(Transaction.TransactionId)">
+                            @Html.DisplayFor(modelItem => item.TransactionId)
+                        </td>
+                        <td class="@nameof(Transaction.DateTime)">
+                            @{
+                                DateTime localDateTime = item.DateTime.ToLocalTime();
+                            }
+                            @Html.DisplayFor(modelItem => localDateTime)
+                        </td>
+                        <td class="@nameof(Transaction.Amount)">
+                            &#8364 @Html.DisplayFor(modelItem => item.Amount)
+                        </td>
+                        <td class="@nameof(Transaction.TransactionType)">
+                            @Html.DisplayFor(modelItem => item.TransactionType)
+                        </td>
+                        @*<td class="@nameof(Transaction.ProviderName)">
+                                @Html.DisplayFor(modelItem => item.ProviderName)
+                            </td>
+                            <td class="@nameof(Transaction.ProviderTransactionId)">
+                                @Html.DisplayFor(modelItem => item.ProviderTransactionId)
+                            </td>*@
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

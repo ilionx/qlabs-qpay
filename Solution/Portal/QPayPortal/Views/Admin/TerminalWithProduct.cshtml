@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Portal.Business.Models.TerminalAndProduct>
+
+<script>
+    $(document).ready(function () {
+        $('#AdminTerminalTable').DataTable({
+            order: [[0, "desc"]],
+            columnDefs: [
+                {
+                    targets: [0, 1, 2],
+                    className: 'mdl-data-table__cell--non-numeric'
+                }
+            ]
+        });
+    });
+</script>
+
+<table id='AdminTerminalTable' class="mdl-data-table mdl-shadow--2dp adminPartialViewTable">
+    <thead>
+    <tr>
+        <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(ViewTerminalWithProduct.TerminalId)">Betaalterminal ID</th>
+        <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(ViewTerminalWithProduct.ProductDescription)">Omschrijving</th>
+        <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(ViewTerminalWithProduct.ProductId)">Product ID</th>
+        <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(ViewTerminalWithProduct.Productname)">Product naam</th>
+        <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(ViewTerminalWithProduct.ProductDescription)">Product omschrijving</th>
+        <th class="mdl-data-table__cell--non-numeric sort" data-sort="@nameof(ViewTerminalWithProduct.ProductPrice)">Product prijs</th>
+        <th/>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="@nameof(ViewTerminalWithProduct.TerminalId)">
+                @Html.DisplayFor(modelItem => item.TerminalId)
+            </td>
+            <td class="@nameof(ViewTerminalWithProduct.ProductDescription)">
+                @Html.DisplayFor(modelItem => item.TerminalDescription)
+            </td>
+            <td class="@nameof(ViewTerminalWithProduct.ProductId)">
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td class="@nameof(ViewTerminalWithProduct.Productname)">
+                @Html.DisplayFor(modelItem => item.Productname)
+            </td>
+            <td class="@nameof(ViewTerminalWithProduct.ProductDescription)">
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td class="@nameof(ViewTerminalWithProduct.ProductPrice))">
+                &#8364 @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                <a id="tt1" class="mdl-button mdl-js-button mdl-button--icon" asp-action="EditTerminalProduct" asp-route-id="@item.TerminalId">
+                    <i class="material-icons">edit</i>
+                </a>
+            </td>
+            <td>
+                <a id="tt2" class="mdl-button mdl-js-button mdl-button--icon" asp-action="DeleteTerminal" asp-route-id="@item.TerminalId">
+                    <i class="material-icons">delete</i>
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<div style="padding-left: 85%">
+    <a asp-action="CreateTerminal" class="mdl-button mdl-button--accent mdl-button--raised">Nieuw terminal</a>
+</div>

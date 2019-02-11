@@ -1,0 +1,46 @@
+﻿@using System.Net.Mail
+@model IEnumerable<Portal.DataAccess.Models.Employee>
+@{
+    var loggedInUserData = ViewData["LoggedInUserData"] as ViewUserInfo;
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string[] FullName;
+#if DEBUG
+    FullName = new string[]{"debugUser","@portal"};
+#else
+    FullName = User.Identity.Name.Substring(0, User.Identity.Name.LastIndexOf("@")).Split('.');
+#endif
+}
+<html>
+<body>
+<div class="demo-card-wide mdl-card mdl-shadow--2dp UserTransactionContainer">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text" style="color: black">Welcome @FullName[0].First().ToString().ToUpper()@FullName[0].Substring(1) @FullName[1].First().ToString().ToUpper()@FullName[1].Substring(1)</h2>
+    </div>
+    <div id="UserDetails" style="width: 100%; height: 100%; float: left">
+        <ul class="userInfo-list-item mdl-list">
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content ">
+                    Saldo: &#8364 @loggedInUserData.Balance
+                </span>
+            </li>
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                    Id van uw toegangskaart: @loggedInUserData.CardId
+                </span>
+            </li>
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                    @loggedInUserData.AmountOpenTransactions
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <a asp-action="TopUp" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            Saldo opwaarderen
+        </a>
+    </div>
+</div>
+</body>
+</html>
